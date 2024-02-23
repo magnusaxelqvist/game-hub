@@ -10,8 +10,8 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <Card borderRadius='10px' overflow='hidden'>
-      <Image src={game.background_image} alt={game.name} />
-      <CardBody>
+      <Image src={game.background_image} alt={game.name} objectFit='cover'  height='60%' />
+      <CardBody display="flex" flexDirection="column" justifyContent="space-between" height="100%">
         <Heading fontSize='2xl'>{game.name}</Heading>
         <HStack justifyContent='space-between'>
           <PlatformIconList
