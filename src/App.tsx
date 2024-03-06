@@ -11,10 +11,10 @@ import SortSelector from './components/SortSelector';
 export interface GamesQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string;
 }
 
 function App() {
-
   const [gamesQuery, setGamesQuery] = useState<GamesQuery>({} as GamesQuery);
 
   return (
@@ -43,9 +43,16 @@ function App() {
         <HStack spacing={5} padding={2} marginBottom={5}>
           <PlatformSelector
             selectedPlatform={gamesQuery.platform}
-            onSelectPlatform={(platform) => setGamesQuery({...gamesQuery, platform})}
+            onSelectPlatform={(platform) =>
+              setGamesQuery({ ...gamesQuery, platform })
+            }
           />
-          <SortSelector/>
+          <SortSelector
+            sortOrder={gamesQuery.sortOrder}
+            onSelectSortOrder={(sortOrder) =>
+              setGamesQuery({ ...gamesQuery, sortOrder })
+            }
+          />
         </HStack>
         <GameGrid gameQuery={gamesQuery} />
       </GridItem>
