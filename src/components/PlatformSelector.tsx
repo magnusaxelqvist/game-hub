@@ -19,6 +19,9 @@ if (error) return null;
         {selectedPlatform?.name || 'Platforms'}
       </MenuButton>
       <MenuList>
+      <MenuItem key="none" onClick={() => onSelectPlatform(null)}>
+          All Platforms
+        </MenuItem>
         {data.map((platform) => (
           <MenuItem key={platform.id} onClick={() => onSelectPlatform(platform)}>{platform.name}</MenuItem>
         ))}

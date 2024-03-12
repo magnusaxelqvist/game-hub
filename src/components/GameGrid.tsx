@@ -3,10 +3,10 @@ import useGames from '../hooks/useGames';
 import GameCard from './GameCard';
 import GameCardSkeleton from './GameCardSkeleton';
 import GameCardContainer from './GameCardContainer';
-import { GamesQuery } from '../App';
+import { GameQuery } from '../App';
 
 interface Props {
-  gameQuery: GamesQuery;
+  gameQuery: GameQuery;
 }
 
 const GameGrid = ({ gameQuery }: Props) => {
@@ -23,12 +23,12 @@ const GameGrid = ({ gameQuery }: Props) => {
       >
         {isLoading &&
           skeletons.map((skeleton) => (
-            <GameCardContainer  key={skeleton}>
+            <GameCardContainer key={skeleton}>
               <GameCardSkeleton />
             </GameCardContainer>
           ))}
         {data.map((game) => (
-          <GameCardContainer key={game.id} >
+          <GameCardContainer key={game.id}>
             <GameCard game={game} />
           </GameCardContainer>
         ))}
